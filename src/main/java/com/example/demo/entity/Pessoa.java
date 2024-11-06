@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 
 @Data
@@ -11,10 +12,10 @@ import java.time.temporal.ChronoUnit;
 public class Pessoa {
 
     private String nome;
-    private LocalDate nascimento;
+    private LocalDateTime nascimento;
 
     public int getIdade(){
-        return (int) ChronoUnit.YEARS.between(this.nascimento, LocalDate.now());
+        return (int) ChronoUnit.YEARS.between(this.nascimento, LocalDateTime.now());
     }
 
     public boolean maiorIdade(){
