@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.condition.JRE.JAVA_17;
 public class CondicionaisTest {
 
     @Test
-    @EnabledIfEnvironmentVariable(named = "USERNAME", matches = "robso")
+    @EnabledIfEnvironmentVariable(named = "USERNAME", matches = "Robson")
     void validarAlgoSomenteNoUsuarioRobson(){
         Assertions.assertEquals(10, 5 + 5);
     }
@@ -19,6 +19,7 @@ public class CondicionaisTest {
     @DisabledIfEnvironmentVariable(named = "USERNAME", matches = "root")
     void desabilitarAlgoSomenteNoUsuarioRobson(){
         Assertions.assertEquals(10, 5 + 5);
+        System.out.println("teste");
     }
 
 
