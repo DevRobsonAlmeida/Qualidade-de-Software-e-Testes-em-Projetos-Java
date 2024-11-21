@@ -10,6 +10,8 @@ import org.mockito.Mockito;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static org.mockito.ArgumentMatchers.anyInt;
+
 @ExtendWith(MockitoExtension.class)
 public class ContaTeste {
 
@@ -35,7 +37,13 @@ public class ContaTeste {
         conta.validaSaldo(500);
         conta.validaSaldo(700);
 
-        Mockito.verify(conta, Mockito.times(3)).validaSaldo(ArgumentMatchers.anyInt());
+        Mockito.verify(conta, Mockito.times(3)).validaSaldo(anyInt());
+    }
+
+    @Test
+    void retonarTrueParaQualquerValorNaValidacaoDeSaldo(){
+        Mockito.doNothing().when(conta).validaSaldo(anyInt());
+        conta.validaSaldo(3500);
     }
 
 
